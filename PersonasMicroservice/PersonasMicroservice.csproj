@@ -282,10 +282,13 @@
   <ItemGroup>
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Data\PersonasContext.cs" />
+    <Compile Include="Models\Cita.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Receta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appsetting.json" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
