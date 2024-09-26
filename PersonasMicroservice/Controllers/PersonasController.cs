@@ -37,4 +37,19 @@ public class PersonasController : ControllerBase
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetPersonaById), new { id = persona.Id }, persona);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePersona(int id)
+    {
+        var persona = await _context.Personas.FindAsync(id);
+        if (persona == null)
+        {
+            return NotFound();
+        }
+
+        _context.Personas.Remove(persona);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
 }
