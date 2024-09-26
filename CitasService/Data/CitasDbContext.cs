@@ -1,12 +1,12 @@
-﻿using CitasService.Models;
-using Microsoft.EntityFrameworkCore;
+﻿
+using System.Data.Entity;
 
-namespace CitasService.Data
+
+public class CitasDbContext : DbContext
 {
-    public class CitasDbContext : DbContext
-    {
-        public DbSet<Cita> Citas { get; set; } 
+    public DbSet<Cita> Citas { get; set; }
 
-        public CitasDbContext(DbContextOptions<CitasDbContext> options) : base(options) { }
+    public CitasDbContext() : base("CitasDbContext")
+    {
     }
 }

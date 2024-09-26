@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "PersonasDatabase": "Server=tu_servidor;Database=PersonasDB;User Id=tu_usuario;Password=tu_contraseña;"
-  }
-}
