@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecetasService", "RecetasService\RecetasService.csproj", "{243D8AF1-C7D2-4139-8755-E88E8F58753D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecetasService.Tests", "RecetasService.Tests\RecetasService.Tests.csproj", "{37E575C2-9DF1-4583-8606-E1084E49BDAA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonasService", "PersonasService\PersonasService.csproj", "{F345A7FF-FF11-46AB-B9E7-B08CED8425A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonasService.Tests", "PersonasService.Tests\PersonasService.Tests.csproj", "{7ABE35D3-77A6-4EC6-9217-99A84B675F09}"
@@ -15,20 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitasServices", "CitasServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitasServices.Tests", "CitasServices.Tests\CitasServices.Tests.csproj", "{A8DA1428-5347-4802-BD12-85CE7E70931A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecetasServices", "RecetasServices\RecetasServices.csproj", "{6022C36F-3810-4833-BDBB-FC602751BCE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecetasServices.Tests", "RecetasServices.Tests\RecetasServices.Tests.csproj", "{523A233F-77F6-4908-A6CD-0E0ABA6AC250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{243D8AF1-C7D2-4139-8755-E88E8F58753D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{243D8AF1-C7D2-4139-8755-E88E8F58753D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{243D8AF1-C7D2-4139-8755-E88E8F58753D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{243D8AF1-C7D2-4139-8755-E88E8F58753D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37E575C2-9DF1-4583-8606-E1084E49BDAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37E575C2-9DF1-4583-8606-E1084E49BDAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37E575C2-9DF1-4583-8606-E1084E49BDAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37E575C2-9DF1-4583-8606-E1084E49BDAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F345A7FF-FF11-46AB-B9E7-B08CED8425A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F345A7FF-FF11-46AB-B9E7-B08CED8425A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F345A7FF-FF11-46AB-B9E7-B08CED8425A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +37,14 @@ Global
 		{A8DA1428-5347-4802-BD12-85CE7E70931A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8DA1428-5347-4802-BD12-85CE7E70931A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8DA1428-5347-4802-BD12-85CE7E70931A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6022C36F-3810-4833-BDBB-FC602751BCE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6022C36F-3810-4833-BDBB-FC602751BCE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6022C36F-3810-4833-BDBB-FC602751BCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6022C36F-3810-4833-BDBB-FC602751BCE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523A233F-77F6-4908-A6CD-0E0ABA6AC250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523A233F-77F6-4908-A6CD-0E0ABA6AC250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523A233F-77F6-4908-A6CD-0E0ABA6AC250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523A233F-77F6-4908-A6CD-0E0ABA6AC250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
