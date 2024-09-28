@@ -5,7 +5,7 @@ public class RecetasDbContext : DbContext
 {
     public DbSet<Receta> Recetas { get; set; }
 
-    public RecetasDbContext() : base("RecetasDbContext2")
+    public RecetasDbContext() : base("RecetasDbContext")
     {
     }
 }

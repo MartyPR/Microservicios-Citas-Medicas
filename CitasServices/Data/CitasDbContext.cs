@@ -4,7 +4,7 @@ public class CitasDbContext : DbContext
 {
     public DbSet<Cita> Citas { get; set; }
 
-    public CitasDbContext() : base("CitasDbContext2")
+    public CitasDbContext() : base("CitasDbContext")
     {
     }
 }
