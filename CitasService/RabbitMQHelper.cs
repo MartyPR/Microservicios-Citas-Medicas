@@ -5,7 +5,7 @@ public class RabbitMQHelper
 {
     public static void SendMessage(string queueName, string message)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" }; // Set RabbitMQ server details
+        var factory = new ConnectionFactory() { HostName = "localhost" }; 
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())
         {

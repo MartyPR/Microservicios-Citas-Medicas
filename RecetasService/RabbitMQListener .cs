@@ -7,7 +7,7 @@ public class RabbitMQListener
 {
     public static void StartListening(string queueName)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" }; // Replace with RabbitMQ server details
+        var factory = new ConnectionFactory() { HostName = "localhost" };
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())
         {
@@ -22,9 +22,9 @@ public class RabbitMQListener
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine($"Received: {message}");
 
-                // Process the message (e.g., create a new Receta in the database)
+ 
+                CreateRecetaFromMessage(message);
             };
             channel.BasicConsume(queue: queueName,
                                  autoAck: true,
@@ -32,6 +32,25 @@ public class RabbitMQListener
 
             Console.WriteLine("Waiting for messages...");
             Console.ReadLine();
+        }
+    }
+
+    private static void CreateRecetaFromMessage(string message)
+    {
+
+        var receta = new Receta
+        {
+            CitaId = Guid.NewGuid().ToString(),
+            Paciente = "John Doe",  
+            Descripcion = "Prescription based on completed appointment",
+            Estado = "Activa",
+            FechaCreacion = DateTime.Now
+        };
+
+        using (var context = new RecetasDbContext())
+        {
+            context.Recetas.Add(receta);
+            context.SaveChanges();
         }
     }
 }

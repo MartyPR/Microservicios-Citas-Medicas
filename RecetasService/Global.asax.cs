@@ -17,9 +17,9 @@ namespace RecetasService
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Start listening to RabbitMQ in a separate thread to avoid blocking the application startup
+            // Iniciar la escucha de RabbitMQ en un hilo separado para evitar el bloqueo del inicio de la aplicación.
             var listenerThread = new System.Threading.Thread(() => RabbitMQListener.StartListening("RecetaQueue"));
-            listenerThread.IsBackground = true; // Ensures the thread will not prevent application exit
+            listenerThread.IsBackground = true;
             listenerThread.Start();
         }
     }

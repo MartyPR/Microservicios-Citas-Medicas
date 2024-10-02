@@ -14,7 +14,7 @@ public class CitasController : ApiController
         return Ok(citas);
     }
 
-    // GET: api/citas/5
+    // GET: api/citas/{id}
     [HttpGet]
     public IHttpActionResult GetCita(int id)
     {
@@ -37,14 +37,10 @@ public class CitasController : ApiController
 
         _context.Citas.Add(cita);
         _context.SaveChanges();
-
-        // Send message to RabbitMQ to trigger receta creation
-        RabbitMQHelper.SendMessage("RecetaQueue", $"Cita creada: {cita.Id}");
-
         return CreatedAtRoute("DefaultApi", new { id = cita.Id }, cita);
     }
 
-    // PUT: api/citas/5
+    // PUT: api/citas/{id}
     [HttpPut]
     public IHttpActionResult PutCita(int id, Cita cita)
     {
@@ -69,7 +65,7 @@ public class CitasController : ApiController
         return StatusCode(HttpStatusCode.NoContent);
     }
 
-    // DELETE: api/citas/5
+    // DELETE: api/citas/{id}
     [HttpDelete]
     public IHttpActionResult DeleteCita(int id)
     {
@@ -81,6 +77,26 @@ public class CitasController : ApiController
 
         _context.Citas.Remove(cita);
         _context.SaveChanges();
+        return Ok(cita);
+    }
+
+    // PUT: api/citas/finalizar/{id}
+    [HttpPut]
+    [Route("api/citas/finalizar/{id}")]
+    public IHttpActionResult FinalizarCita(int id)
+    {
+        var cita = _context.Citas.Find(id);
+        if (cita == null)
+        {
+            return NotFound();
+        }
+
+        cita.Estado = "Finalizada";
+        _context.SaveChanges();
+
+        // enviar mensaje a RecetaQueue
+        RabbitMQHelper.SendMessage("RecetaQueue", $"Cita finalizada para paciente {cita.Paciente}. Médico: {cita.Medico}");
+
         return Ok(cita);
     }
 }

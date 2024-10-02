@@ -35,7 +35,7 @@ public class RecetasController : ApiController
         {
             return BadRequest(ModelState);
         }
-
+        receta.CitaId = Guid.NewGuid().ToString();
         receta.FechaCreacion = DateTime.Now;
         _context.Recetas.Add(receta);
         _context.SaveChanges();
@@ -76,5 +76,33 @@ public class RecetasController : ApiController
         _context.Recetas.Remove(receta);
         _context.SaveChanges();
         return Ok(receta);
+    }
+    // GET: api/recetas/paciente/{pacienteNombre}
+    [HttpGet]
+    [Route("api/recetas/paciente/{pacienteNombre}")]
+    public IHttpActionResult GetRecetasByPaciente(string pacienteNombre)
+    {
+        var recetas = _context.Recetas.Where(r => r.Paciente == pacienteNombre).ToList();
+        if (recetas == null || !recetas.Any())
+        {
+            return NotFound();
+        }
+        return Ok(recetas);
+    }
+
+    // PUT: api/recetas/estado/{id}
+    [HttpPut]
+    [Route("api/recetas/estado/{id}")]
+    public IHttpActionResult UpdateRecetaEstado(int id, string estado)
+    {
+        var receta = _context.Recetas.Find(id);
+        if (receta == null)
+        {
+            return NotFound();
+        }
+
+        receta.Estado = estado;
+        _context.SaveChanges();
+        return StatusCode(HttpStatusCode.NoContent);
     }
 }

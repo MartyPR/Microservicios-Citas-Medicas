@@ -38,7 +38,7 @@ public class PersonasController : ApiController
 
         _context.Personas.Add(persona);
         _context.SaveChanges();
-        // Send message to RabbitMQ
+        // enviar mensaje RabbitMQ
         RabbitMQHelper.SendMessage("PersonaQueue", $"Nueva persona creada: {persona.Nombre}");
 
         return CreatedAtRoute("DefaultApi", new { id = persona.PersonaId }, persona);
